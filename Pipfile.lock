@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a92e3f778b29d923de188f6f13c86e274661e3b3204f64c1a938b3c905b13240"
+            "sha256": "0730a8d9617de65328b371d395a171c63fc39c466ea5851482205f3b4e18f5ee"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -35,6 +35,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.2"
+        },
+        "httpie-jwt-auth": {
+            "hashes": [
+                "sha256:41c38d4c9febae049ca55bc15b926143f8bdfd0815813d14786a5beb3b5fffd1",
+                "sha256:49a03ce2285905c21485d2df48b6fa18c990cb4bca1c38a96920e8d35300e5e1"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
         },
         "idna": {
             "hashes": [
