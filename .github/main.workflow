@@ -42,3 +42,13 @@ action "Docker Publish" {
   uses = "actions/docker/cli@master"
   args = "push swinton/httpie-action"
 }
+
+Workflow "Integration Tests" {
+  on = "push"
+  resolves = "Integration Tests Complete"
+}
+
+action "Integration Tests Complete" {
+  uses = "swinton/httpie-action@$GITHUB_SHA"
+  args = ["--ignore-stdin", "https://httpbin.org/anything", "foo=bar"]
+}
