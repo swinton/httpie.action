@@ -5,4 +5,5 @@ name = "pypi"
 
 [packages]
 httpie = "*"
+httpie-aws-auth = "*"
 httpie-jwt-auth = "*"
