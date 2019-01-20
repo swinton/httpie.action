@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "078fe02453b8eb8f1baafc32f75990545e3eda0da3a4e00455d620db12cce8a5"
+            "sha256": "04cebf7d0668c68b8f56e8c0b19d2b8d6c4588761f6f3b5b06234cc4c18ec60f"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -35,6 +35,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.2"
+        },
+        "httpie-api-auth": {
+            "hashes": [
+                "sha256:0f37bdb3f916125b9a19b4ccec0e7524539608e10d54abc8802500a2b8574a26",
+                "sha256:1e500368e7578e2c4ea711712a7d28f27e30d6fdd58e7a36d0d67f6ca72835a2"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
         },
         "httpie-aws-auth": {
             "hashes": [
