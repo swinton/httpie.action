@@ -1,6 +1,8 @@
 # ignore all files by default
 *
 # include required files with an exception
+!Pipfile
+!Pipfile.lock
 !entrypoint.sh
 # !LICENSE
 # !README.md

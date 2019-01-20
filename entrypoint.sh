@@ -2,4 +2,4 @@
 
 set -e
 
-sh -c "http $*"
+sh -c "pipenv run http $*"

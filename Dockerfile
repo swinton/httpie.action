@@ -1,9 +1,13 @@
-FROM python:3-stretch
+FROM python:3-slim-stretch
+
+WORKDIR /
+
+COPY "entrypoint.sh" "Pipfile" "Pipfile.lock" /
 
 RUN apt-get update && \
   pip install --upgrade pip && \
-  pip install --upgrade httpie 
+  pip install --upgrade pipenv && \
+  pipenv install
 
-COPY "entrypoint.sh" "/entrypoint.sh"
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["--help"]
