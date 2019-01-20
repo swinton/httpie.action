@@ -29,6 +29,15 @@ Some [HTTPie presets](https://github.com/jakubroztocil/httpie/blob/358342d1c915d
 1. [`--default-scheme=https`](https://github.com/jakubroztocil/httpie/blob/358342d1c915d6462a080a77aefbb20166d0bd5d/README.rst#custom-default-scheme): Assumes `https://` is the default prefix for URLs, so you can just say (for example) `api.github.com/zen` as opposed to `https://api.github.com/zen`
 1. [`--print=hb`](https://github.com/jakubroztocil/httpie/blob/358342d1c915d6462a080a77aefbb20166d0bd5d/README.rst#output-options): Prints both response headers _and_ response body in the output
 
+## Plugins
+
+A few [authentication plugins](https://github.com/jakubroztocil/httpie/blob/358342d1c915d6462a080a77aefbb20166d0bd5d/README.rst#auth-plugins) are included:
+
+1. [`httpie-api-auth`](https://github.com/pd/httpie-api-auth): Provides support for the ApiAuth authentication scheme
+1. [`httpie-aws-auth`](https://github.com/httpie/httpie-aws-auth): Provides support AWS authentication
+1. [`httpie-hmac-auth`](https://github.com/guardian/httpie-hmac-auth): Provides support for HMAC authentication
+1. [`httpie-jwt-auth`](https://github.com/teracyhq/httpie-jwt-auth): Provides support for JSON Web Tokens
+
 ## More info
 
 Usage docs for HTTPie are [here](https://github.com/jakubroztocil/httpie).
