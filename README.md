@@ -14,7 +14,7 @@ workflow "Call external API" {
 
 action "Call httpbin" {
   uses = "swinton/httpie-action@master"
-  args = ["--ignore-stdin", "https://httpbin.org/anything", "foo=bar"]
+  args = ["httpbin.org/anything", "foo=bar"]
 }
 ```
 
