@@ -22,7 +22,7 @@ action "Build" {
 action "Docker Run" {
   needs = ["Build"]
   uses = "actions/docker/cli@master"
-  args = "run -t httpie-action --ignore-stdin --pretty=all --default-scheme=https --print=hb api.github.com/zen"
+  args = "run -t httpie-action api.github.com/zen"
 }
 
 action "Docker Tag" {
