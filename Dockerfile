@@ -15,9 +15,7 @@ LABEL com.github.actions.description="Wraps the HTTPie CLI to enable human-frien
 LABEL com.github.actions.icon="upload-cloud"
 LABEL com.github.actions.color="gray-dark"
 
-RUN apt-get update && \
-  rm -rf /var/lib/apt/lists/* && \
-  pip install --upgrade pip && \
+RUN pip install --upgrade pip && \
   pip install --upgrade pipenv && \
   pipenv install
 
