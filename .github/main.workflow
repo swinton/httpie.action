@@ -19,6 +19,12 @@ action "Build" {
   args = "build -t httpie-action ."
 }
 
+action "Run" {
+  needs = ["Build]
+  uses = "actions/docker/cli@master"
+  args = "run -t httpie-action --ignore-stdin --pretty=all --default-scheme=https --print=hb api.github.com/zen"
+}
+
 action "Docker Tag" {
   needs = ["Build"]
   uses = "actions/docker/tag@master"
