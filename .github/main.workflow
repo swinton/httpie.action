@@ -19,7 +19,7 @@ action "Build" {
   args = "build -t httpie-action ."
 }
 
-action "Run" {
+action "Docker Run" {
   needs = ["Build"]
   uses = "actions/docker/cli@master"
   args = "run -t httpie-action --ignore-stdin --pretty=all --default-scheme=https --print=hb api.github.com/zen"
@@ -44,7 +44,7 @@ action "Docker Login" {
 }
 
 action "Docker Publish" {
-  needs = ["Docker Tag", "Docker Login"]
+  needs = ["Docker Run", "Docker Tag", "Docker Login"]
   uses = "actions/docker/cli@master"
   args = "push swinton/httpie-action"
 }
