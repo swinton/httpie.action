@@ -16,8 +16,7 @@ WORKDIR /
 COPY "entrypoint.sh" "Pipfile" "Pipfile.lock" /
 COPY "config.json" /.httpie/
 
-RUN apt-get update && \
-  pip install --upgrade pip && \
+RUN pip install --upgrade pip && \
   pip install --upgrade pipenv && \
   pipenv install
 
