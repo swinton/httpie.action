@@ -3,6 +3,7 @@
     "--ignore-stdin",
     "--print=hb",
     "--default-scheme=https",
-    "--pretty=format"
+    "--pretty=format",
+    "--check-status"
   ]
 }
