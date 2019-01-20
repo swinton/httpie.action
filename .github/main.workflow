@@ -43,7 +43,7 @@ action "Docker Publish" {
   args = "push swinton/httpie-action"
 }
 
-Workflow "Integration Tests" {
+workflow "Integration Tests" {
   on = "push"
   resolves = "Integration Tests Complete"
 }
