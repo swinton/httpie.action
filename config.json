@@ -1,0 +1,8 @@
+{
+  "default_options": [
+    "--ignore-stdin",
+    "--print=hb",
+    "--default-scheme=https",
+    "--pretty=all"
+  ]
+}
