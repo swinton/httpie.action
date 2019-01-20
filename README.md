@@ -1,12 +1,12 @@
 # httpie-action
 
-> Human-friendly interactions with third-party web services with **GitHub Actions**.
+> Human-friendly interactions with third-party web services through **GitHub Actions** :zap:
 
-[**GitHub Actions**](https://developer.github.com/actions/) compatible version of [**HTTPie**](https://github.com/jakubroztocil/httpie).
+A [**GitHub Actions**](https://developer.github.com/actions/)-compatible version of [**HTTPie**](https://github.com/jakubroztocil/httpie), allowing you to interact with any third-party service that exposes an API over HTTP in your [development workflow](https://developer.github.com/actions/creating-workflows/).
 
-## Usage
+## Simple example
 
-Use as part of a GitHub Action like so:
+To call `httpbin.org` on every `push` to the repo:
 
 ```hcl
 workflow "Call external API" {
