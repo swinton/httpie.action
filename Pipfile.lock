@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "04cebf7d0668c68b8f56e8c0b19d2b8d6c4588761f6f3b5b06234cc4c18ec60f"
+            "sha256": "d8d9cbfa54285d77b1dc96da89c51dfcd898c644fc15df6afda974b6bae5c583"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -50,6 +50,13 @@
             ],
             "index": "pypi",
             "version": "==0.0.3"
+        },
+        "httpie-hmac-auth": {
+            "hashes": [
+                "sha256:c8912ddf803c5d66aa4409d034f592f268f612c7d31451bde54c05edfd82e7b9"
+            ],
+            "index": "pypi",
+            "version": "==0.2.3"
         },
         "httpie-jwt-auth": {
             "hashes": [
