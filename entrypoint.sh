@@ -22,8 +22,7 @@ do
   printf '%s\n' "${line}" >> "${dest}"
 
   # Start writing to body when first zero-length string is found.
-  len=$( "${#line}" | wc -c )
-  if [ "${len}" -eq 1 ]; then
+  if [ "${#line}" -eq 1 ]; then
     dest="${body}"
   fi
 done < "${response}"
