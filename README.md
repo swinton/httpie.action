@@ -6,7 +6,7 @@ A [**GitHub Actions**](https://developer.github.com/actions/)-compatible version
 
 ## Simple example
 
-To call `httpbin.org` on every `push` to the repo:
+To `POST` some `JSON` data, `{"hello": "world"}`, to `https://httpbin.org/anything` on every `push` to the repo:
 
 ```hcl
 workflow "Call external API" {
@@ -16,7 +16,7 @@ workflow "Call external API" {
 
 action "Call httpbin" {
   uses = "swinton/httpie-action@master"
-  args = ["httpbin.org/anything", "foo=bar"]
+  args = ["POST", "httpbin.org/anything", "hello=world"]
 }
 ```
 
