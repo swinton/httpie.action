@@ -20,6 +20,10 @@ action "Call httpbin" {
 }
 ```
 
+## More examples
+
+TODO
+
 ## Presets
 
 Some [HTTPie presets](https://github.com/jakubroztocil/httpie/blob/358342d1c915d6462a080a77aefbb20166d0bd5d/README.rst#config) are applied by default by the included [`config.json`](config.json), that make sense in the context of GitHub Actions, namely:
