@@ -17,7 +17,7 @@ COPY "entrypoint.sh" "Pipfile" "Pipfile.lock" /
 COPY "config.json" /.httpie/
 
 RUN apt-get update -y && \
-  apt-get install --no-install-recommends jq && \
+  apt-get install -y --no-install-recommends jq && \
   rm -rf /var/lib/apt/lists/* && \
   pip install --upgrade pip && \
   pip install --upgrade pipenv && \
