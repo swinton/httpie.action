@@ -16,7 +16,10 @@ WORKDIR /
 COPY "entrypoint.sh" "Pipfile" "Pipfile.lock" /
 COPY "config.json" /.httpie/
 
-RUN pip install --upgrade pip && \
+RUN apt-get update -y && \
+  apt-get install -y --no-install-recommends jq && \
+  rm -rf /var/lib/apt/lists/* && \
+  pip install --upgrade pip && \
   pip install --upgrade pipenv && \
   pipenv install --deploy --system
 
