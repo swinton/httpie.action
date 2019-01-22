@@ -22,7 +22,25 @@ action "Call httpbin" {
 
 ## More examples
 
-TODO
+### Using output in a downstream action
+
+In this example, we'll open an issue in the current repository, and get the details of the issue that was opened in a subsequent action.
+
+**Note**, this is made possible since the response body is saved in a file, `$HOME/$GITHUB_ACTION.response.body`. Also available, is the response headers (`$HOME/$GITHUB_ACTION.response.headers`), and full response (`$HOME/$GITHUB_ACTION.response`).
+
+```hcl
+action "Open issue" {
+  uses = "swinton/httpie-action@master"
+  args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "POST", "api.github.com/repos/$GITHUB_REPOSITORY/issues", "title=Hello\\ world"]
+  secrets = ["GITHUB_TOKEN"]
+}
+
+action "Get issue details" {
+  needs = ["Open issue"]
+  uses = "actions/bin/sh@master"
+  args = ["cat $HOME/Open\\ issue.response.body"]
+}
+```
 
 ## Presets
 
