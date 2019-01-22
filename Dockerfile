@@ -18,7 +18,7 @@ COPY "config.json" /.httpie/
 
 RUN pip install --upgrade pip && \
   pip install --upgrade pipenv && \
-  pipenv install
+  pipenv install --deploy --system
 
 ENV HTTPIE_CONFIG_DIR /.httpie
 
