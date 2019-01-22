@@ -38,21 +38,29 @@ action "Call httpbin" {
 
 ### Using output in a downstream action
 
-In this example, we'll open an issue in the current repository, and get the details of the issue that was opened in a subsequent action.
+In this more advanced, but somewhat contrived, example we'll open an issue in the current repository, and then comment and close that issue in subsequent actions.
 
-**Note**, this is made possible since the response body is saved in a file, `$HOME/$GITHUB_ACTION.response.body`. Also available, is the response headers (`$HOME/$GITHUB_ACTION.response.headers`), and full response (`$HOME/$GITHUB_ACTION.response`).
+**Note**, this is made possible since the response body is preserved in a file, `$HOME/$GITHUB_ACTION.response.body` (along with response headers, in `$HOME/$GITHUB_ACTION.response.headers`, and the entire response, in `$HOME/$GITHUB_ACTION.response`). The response can then be parsed in downstream actions using [`jq`](https://stedolan.github.io/jq/), a _command-line JSON processor_, which is _pre-baked_ into the container.
 
 ```hcl
-action "Open issue" {
+action "Issue" {
   uses = "swinton/httpie-action@master"
   args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "POST", "api.github.com/repos/$GITHUB_REPOSITORY/issues", "title=Hello\\ world"]
   secrets = ["GITHUB_TOKEN"]
 }
 
-action "Get issue details" {
-  needs = ["Open issue"]
-  uses = "actions/bin/sh@master"
-  args = ["cat $HOME/Open\\ issue.response.body"]
+action "Comment on issue" {
+  needs = ["Issue"]
+  uses = "swinton/httpie-action@master"
+  args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "POST", "`jq .comments_url /github/home/Issue.response.body --raw-output`", "body=Thanks\\ for\\ playing\\ :v:"]
+  secrets = ["GITHUB_TOKEN"]
+}
+
+action "Close issue" {
+  needs = ["Issue"]
+  uses = "swinton/httpie-action@master"
+  args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "PATCH", "`jq .url /github/home/Issue.response.body --raw-output`", "state=closed"]
+  secrets = ["GITHUB_TOKEN"]
 }
 ```
 
