@@ -1,13 +1,13 @@
 FROM python:3-slim-stretch
 
-LABEL name="HTTPie CLI"
-LABEL version="1.0.0"
+LABEL name="HTTP client for GitHub Actions"
+LABEL version="1.0.3"
 LABEL repository="http://github.com/swinton/httpie-action"
 LABEL homepage="http://github.com/swinton/httpie-action"
 
 LABEL maintainer="Steve Winton <stevewinton@gmail.com>"
-LABEL com.github.actions.name="HTTPie CLI"
-LABEL com.github.actions.description="Wraps the HTTPie CLI to enable human-friendly interactions with third-party web services."
+LABEL com.github.actions.name="HTTP client"
+LABEL com.github.actions.description="A general purpose HTTP client for GitHub Actions, wrapping the HTTPie CLI to enable human-friendly interactions with third-party web services."
 LABEL com.github.actions.icon="send"
 LABEL com.github.actions.color="gray-dark"
 
