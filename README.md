@@ -20,6 +20,42 @@ action "Call httpbin" {
 }
 ```
 
+## More examples
+
+### Using output in a downstream action
+
+In this example, we'll open an issue in the current repository, and get the details of the issue that was opened in a subsequent action.
+
+**Note**, this is made possible since the response body is saved in a file, `$HOME/$GITHUB_ACTION.response.body`. Also available, is the response headers (`$HOME/$GITHUB_ACTION.response.headers`), and full response (`$HOME/$GITHUB_ACTION.response`).
+
+```hcl
+action "Open issue" {
+  uses = "swinton/httpie-action@master"
+  args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "POST", "api.github.com/repos/$GITHUB_REPOSITORY/issues", "title=Hello\\ world"]
+  secrets = ["GITHUB_TOKEN"]
+}
+
+action "Get issue details" {
+  needs = ["Open issue"]
+  uses = "actions/bin/sh@master"
+  args = ["cat $HOME/Open\\ issue.response.body"]
+}
+```
+
+### Trigger another workflow
+
+In this example, we'll trigger a separate workflow, via [the repository's dispatches endpoint](https://developer.github.com/actions/creating-workflows/triggering-a-repositorydispatch-webhook/#how-to-trigger-the-repositorydispatch-webhook).
+
+**Note**, `$PAT` refers to a personal access token, [created separately](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/), and [stored as a secret](https://developer.github.com/actions/creating-workflows/storing-secrets/).
+
+```hcl
+action "Trigger workflow" {
+  uses = "swinton/httpie-action@master"
+  args = ["--auth-type=jwt", "--auth=$PAT", "POST", "api.github.com/repos/$GITHUB_REPOSITORY/dispatches", "Accept:application/vnd.github.everest-preview+json", "event_type=demo"]
+  secrets = ["PAT"]
+}
+```
+
 ## Presets
 
 Some [HTTPie presets](https://github.com/jakubroztocil/httpie/blob/358342d1c915d6462a080a77aefbb20166d0bd5d/README.rst#config) are applied by default by the included [`config.json`](config.json), that make sense in the context of GitHub Actions, namely:
