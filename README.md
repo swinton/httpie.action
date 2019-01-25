@@ -1,4 +1,4 @@
-# httpie-action
+# httpie.action
 
 > Human-friendly interactions with third-party web services through **GitHub Actions** :zap:
 
@@ -29,7 +29,7 @@ workflow "Call external API" {
 }
 
 action "Call httpbin" {
-  uses = "swinton/httpie-action@master"
+  uses = "swinton/httpie.action@master"
   args = ["POST", "httpbin.org/anything", "hello=world"]
 }
 ```
@@ -44,21 +44,21 @@ In this more advanced, but somewhat contrived, example we'll open an issue in th
 
 ```hcl
 action "Issue" {
-  uses = "swinton/httpie-action@master"
+  uses = "swinton/httpie.action@master"
   args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "POST", "api.github.com/repos/$GITHUB_REPOSITORY/issues", "title=Hello\\ world"]
   secrets = ["GITHUB_TOKEN"]
 }
 
 action "Comment on issue" {
   needs = ["Issue"]
-  uses = "swinton/httpie-action@master"
+  uses = "swinton/httpie.action@master"
   args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "POST", "`jq .comments_url /github/home/Issue.response.body --raw-output`", "body=Thanks\\ for\\ playing\\ :v:"]
   secrets = ["GITHUB_TOKEN"]
 }
 
 action "Close issue" {
   needs = ["Issue"]
-  uses = "swinton/httpie-action@master"
+  uses = "swinton/httpie.action@master"
   args = ["--auth-type=jwt", "--auth=$GITHUB_TOKEN", "PATCH", "`jq .url /github/home/Issue.response.body --raw-output`", "state=closed"]
   secrets = ["GITHUB_TOKEN"]
 }
@@ -72,7 +72,7 @@ In this example, we'll trigger a separate workflow, via [the repository's dispat
 
 ```hcl
 action "Trigger workflow" {
-  uses = "swinton/httpie-action@master"
+  uses = "swinton/httpie.action@master"
   args = ["--auth-type=jwt", "--auth=$PAT", "POST", "api.github.com/repos/$GITHUB_REPOSITORY/dispatches", "Accept:application/vnd.github.everest-preview+json", "event_type=demo"]
   secrets = ["PAT"]
 }
