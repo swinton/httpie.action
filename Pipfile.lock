@@ -30,11 +30,11 @@
         },
         "httpie": {
             "hashes": [
-                "sha256:449c07947be10ee1482fd7ac00b7fe0af499e0e85213fca4e97b6b69a95d61f5",
-                "sha256:fc676c85febdf3d80abc1ef6fa71ec3764d8b838806a7ae4e55e5e5aa014a2ab"
+                "sha256:2745b260227a4c7ea52cc6448be6e70e71558fdfb360fb8676a9d91aae701319",
+                "sha256:6d1b6e21da7d3ec030ae95536d4032c1129bdaf9de4adc72c596b87e5f646e80"
             ],
             "index": "pypi",
-            "version": "==1.0.2"
+            "version": "==1.0.3"
         },
         "httpie-api-auth": {
             "hashes": [
@@ -95,11 +95,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0",
-                "sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+                "sha256:b246607a25ac80bedac05c6f282e3cdaf3afb65420fd024ac94435cabe6e18d1",
+                "sha256:dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
             ],
-            "index": "pypi",
-            "version": "==1.24.2"
+            "version": "==1.25.3"
         }
     },
     "develop": {}
