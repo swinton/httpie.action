@@ -48,3 +48,7 @@ action "Docker Publish" {
   uses = "actions/docker/cli@master"
   args = "push swinton/httpie-action"
 }
+
+workflow "New workflow" {
+  on = "push"
+}
